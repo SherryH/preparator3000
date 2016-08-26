@@ -1,0 +1,30 @@
+{
+  "name": "preparator3000",
+  "version": "1.0.0",
+  "description": "find gaps in knowledge",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node ./util/runTests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackreactor-labs/preparator3000.git"
+  },
+  "author": "Hack Reactor HiRs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hackreactor-labs/preparator3000/issues"
+  },
+  "homepage": "https://github.com/hackreactor-labs/preparator3000#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "glob": "^7.0.3",
+    "mocha": "^2.4.5",
+    "request": "^2.72.0",
+    "sinon": "^1.17.4",
+    "underscore": "^1.8.3"
+  }
+}

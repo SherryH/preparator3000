@@ -40,7 +40,18 @@
 
 
 const asyncMap = (tasks, callback) => {
-
+  var arr = [];
+  var i = 0;
+  function hitMe(result) {
+    arr.push(result);
+    i++
+    if (i === tasks.length) {
+      callback(arr)
+    } else {
+      tasks[i](hitMe)
+    }
+  }
+  tasks[0](hitMe)
 };
 
 module.exports = { asyncMap };

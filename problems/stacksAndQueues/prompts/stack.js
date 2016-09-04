@@ -1,3 +1,4 @@
+'use strict';
 /**
   * A Stack is a data structure where the entities are stored in a LIFO, or Last-in-First-Out
   * order. A stack implementation will be able to "push", or add entities, and "pop",

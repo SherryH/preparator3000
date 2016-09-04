@@ -1,3 +1,4 @@
+'use strict';
 /**
  *  
  *  A robot located at the top left corner of a 5x5 grid is trying to reach the 
@@ -30,6 +31,8 @@ const makeBoard = n => {
 
 const robotPaths = (n, board, i, j) => {
   // TODO: Implement me!
+  var board = makeBoard(n);
+  console.log(board);
 }
 
 module.exports = { robotPaths };

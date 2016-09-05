@@ -12,27 +12,64 @@
 
 // A Board class will be useful
 
-const makeBoard = n => {
-  const board = [];
-  for (let i = 0; i < n; i++) {
-    board.push([]);
-    for (let j = 0; j < n; j++) {
-      board[i].push(false);
+class Board {
+  constructor(n, board) {
+    if (board) {
+      console.log(board);
+      this.board = board;
+    } else {
+      this.board = [];
+      for (let i = 0; i < n; i++) {
+        this.board.push([]);
+        for (let j = 0; j < n; j++) {
+          this.board[i].push(false);
+        }
+      }
     }
   }
-  board.togglePiece = function(i, j) {
-    this[i][j] = !this[i][j];
+  togglePiece(i, j) {
+    this.board[i][j] = !this.board[i][j];
   }
-  board.hasBeenVisited = function(i, j) {
-    return !!this[i][j];
+  hasBeenVisited(i, j) {
+    return !!this.board[i][j];
   }
-  return board;
+  isInBounds(i, j) {
+    if (this.board[i] && this.board[i][j] !== undefined) {
+      return true;
+    }
+  }
 };
 
-const robotPaths = (n, board, i, j) => {
-  // TODO: Implement me!
-  var board = makeBoard(n);
-  console.log(board);
-}
+const robotPaths = (n) => {
+  let counter = 0;
+  var newBoard = new Board(n);
+
+  function subroutine (i ,j) {
+    if (i === n-1 && j === n-1){
+      counter++;
+      return;
+    }
+    if(newBoard.isInBounds(i,j)){
+
+      if(newBoard.hasBeenVisited(i,j)){
+        return;
+
+      } else {
+        newBoard.togglePiece(i,j);
+
+        subroutine(i+1,j);
+        subroutine(i-1,j);
+        subroutine(i,j+1);
+        subroutine(i,j-1);
+
+        newBoard.togglePiece(i,j);
+      }
+    }
+  }
+
+  subroutine(0, 0);
+
+  return counter;
+};
 
 module.exports = { robotPaths };

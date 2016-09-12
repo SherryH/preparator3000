@@ -43,7 +43,7 @@ describe('graph', function() {
 
     it('should execute a call back on each node in the graph', function() {
       const connectTo0 = function(item) {
-        graph.addEdge(0, item);
+        graph.addEdge(0, item.value);
       };
       const graph = new solution.Graph();
       graph.addNode(0);

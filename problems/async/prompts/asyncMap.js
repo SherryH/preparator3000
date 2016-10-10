@@ -17,23 +17,6 @@
  *
  * Example:
  *
- * asyncMap([
- *  cb => {
- *    setTimeout(() => {
- *      cb('one');
- *    }, 200);
- *  },
- *  cb => {
- *    setTimeout(() => {
- *      cb('two');
- *    }, 100);
- *  }
- * ],
- *  results => {
- *    // the results array will equal ['one','two'] even though
- *    // the second function had a shorter timeout.
- *    console.log(results); // ['one', 'two']
- * });
  *
  *
  */
@@ -55,3 +38,20 @@ const asyncMap = (tasks, callback) => {
 };
 
 module.exports = { asyncMap };
+asyncMap([
+ cb => {
+   setTimeout(() => {
+     cb('one');
+   }, 200);
+ },
+ cb => {
+   setTimeout(() => {
+     cb('two');
+   }, 100);
+ }
+],
+ results => {
+   // the results array will equal ['one','two'] even though
+   // the second function had a shorter timeout.
+   console.log(results); // ['one', 'two']
+});

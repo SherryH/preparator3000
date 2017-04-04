@@ -4,11 +4,10 @@
 const every = (array, truthTest) => {
   // your code here
   for (var i = 0; i < array.length; i++) {
-    if (!truthTest(array[i])) {
-      return false;
-    }
+  	if(!truthTest(array[i])) {
+  		return false;
+  	}
   }
-
   return true;
 };
 

@@ -3,18 +3,15 @@
 // returns an array without duplicates
 const removeDuplicates = (array) => {
   // your code here
-  var storage = {};
-  var newArr = [];
-
-  for (var i = 0; i < array.length; i++) {
-    if (!storage[array[i]]) {
-      newArr.push(array[i]);
-    } 
-    storage[array[i]] = true;
-  }
-
-  console.log(storage);
-  return newArr;
+  // Keep O(n) to linear
+  // approach 1: move item to newArray, check if the same item exists in newArray
+  // approach 2: save array elem as keys in an obj, Object.keys to return
+  var obj = {};
+  array.forEach((item)=>{
+    obj[item] = true;
+  });
+  
+  return Object.keys(obj);
 };
 
 module.exports = { removeDuplicates };

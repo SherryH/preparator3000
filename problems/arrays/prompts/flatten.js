@@ -49,7 +49,7 @@ const flatten = (arrays, flattenedArr=[]) => {
   });
 
   return flattenedArr;
-}
+};
 
 
 module.exports = { flatten };

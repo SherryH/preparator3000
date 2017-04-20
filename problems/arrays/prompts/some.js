@@ -9,6 +9,6 @@ const some = (array, truthTest) => {
   	}
   }
   return false;
-}
+};
 
 module.exports = { some };

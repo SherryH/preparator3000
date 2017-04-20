@@ -10,7 +10,7 @@
  *   [11, 16, 20, 25],
  * ]
  *
- * searchSortedMatrix(matrix, 15); // returns [2, 2]; 
+ * searchSortedMatrix(matrix, 15); // returns [2, 2];
  * searchSortedMatrix(matrix, 15); // returns [2, 2];
  */
 
@@ -27,5 +27,10 @@ const searchSortedMatrix = function(matrix, number){
   }
   return 'value not found in matrix';
 };
+
+// console.log(searchSortedMatrix(matrix, 15)); // returns [2, 2]; 
+// console.log(searchSortedMatrix(matrix, 25)); // returns [3, 3];
+// console.log(searchSortedMatrix(matrix, 17)); // returns 'value not found in row';
+// console.log(searchSortedMatrix(matrix, 30)); // returns 'value not found in matrix';
 
 module.exports = { searchSortedMatrix };

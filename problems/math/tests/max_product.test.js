@@ -19,7 +19,7 @@ describe('Math', () => {
     });
 
     it('finds the largest product of 100', () => {
-      assert.equal(solution.maxProduct(40), 7412080755407364);
+      assert.equal(solution.maxProduct(100), 7412080755407364);
     });
 
   });

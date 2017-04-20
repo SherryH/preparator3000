@@ -46,7 +46,7 @@ var asyncMap = (tasks, callback) =>{
   asyncMapRecur = () => {
     if (tasks.length === 0) {
       return callback(answer);
-    } 
+    }
     task = tasks.shift();
     task((val)=>{
       answer.push(val);
@@ -119,7 +119,7 @@ var asyncMap = (tasks, callback) =>{
   promiseArr = tasks.map(task=>{
     return myPromisify(task);
   });
-  
+
   Promise.all(promiseArr)
   .then((val)=>{
     callback(val);
@@ -130,7 +130,7 @@ var asyncMap = (tasks, callback) =>{
 var asyncMap = (tasks, callback) =>{
   var promiseArr = [];
   promiseArr = tasks.map(myPromisify);
-  
+
   Promise.all(promiseArr)
   .then(callback);
 };

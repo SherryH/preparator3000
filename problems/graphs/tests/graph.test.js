@@ -57,6 +57,6 @@ describe('graph', function() {
       assert.equal(graph.hasEdge(0, 3), true);
       assert.equal(graph.hasEdge(0, 4), true);
     });
-    
+
   });
 });

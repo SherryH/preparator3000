@@ -2,7 +2,7 @@
 /**
   * A Queue is a data structure where the entities are stored in a FIFO, or First-in-First-Out
   * order. A queue implementation will be able to "enqueue", or add entities, and "dequeue",
-  * or remove entities. 
+  * or remove entities.
   *
   * For example:
   * myQueue.enqueue(1);

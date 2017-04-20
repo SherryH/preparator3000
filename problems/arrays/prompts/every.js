@@ -9,6 +9,7 @@ const every = (array, truthTest) => {
   	}
   }
   return true;
+
 };
 
 module.exports = { every };

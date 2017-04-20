@@ -2,7 +2,7 @@
   * Given a number, find the max product that
   * can result from breaking the input number into multiple
   * pieces.
-  * 
+  *
   * Input number will be positive and an integer.
   *
   * For example:
@@ -19,6 +19,7 @@
   * maxProduct(8); // => 18
   * Because the largets product can be obtained by 3, 3, 2.
   */
+
 
 const maxProduct = int => {
   var largest = 0;

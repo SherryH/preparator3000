@@ -14,18 +14,18 @@
  * searchSortedMatrix(matrix, 15); // returns [2, 2];
  */
 
-const searchSortedMatrix = (matrix, number) => {
-  // your code here
-  for (var i = 0; i < matrix.length; i++) {
-    if (matrix[i][matrix[i].length - 1] > number) {
-      for (var j = 0; j < matrix[i].length; j++) {
-        if (matrix[i][j] === number) {
+const searchSortedMatrix = function(matrix, number){
+  for (var i =0; i< matrix.length; i++) {
+    if (matrix[i][matrix[i].length-1] >= number) {
+      for (var j =0; j< matrix[i].length; j++) {
+        if(matrix[i][j] === number) {
           return [i, j];
         }
       }
+      return 'value not found in row';
     }
   }
-  return null;
+  return 'value not found in matrix';
 };
 
 module.exports = { searchSortedMatrix };

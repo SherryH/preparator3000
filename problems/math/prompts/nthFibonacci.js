@@ -22,7 +22,7 @@
  */
 
 const nthFibonacci = n => {
-  // Recursive implementation
+  // Recursive implementationfor
   if (n === 0) return 0;
   if (n === 1) return 1;
   if (n === 2) {
@@ -31,6 +31,21 @@ const nthFibonacci = n => {
   	return nthFibonacci(n-1) + nthFibonacci(n-2);
   }
 
+};
+
+const nthFibonacci2 = n => {
+  // TODO: implement me!
+  var output = [0,1,1];
+  var temp;
+  if (n < 3) {
+    return output[n];
+  }
+  for (var i = 3; i <= n; i++) {
+    temp = output[1] + output[2];
+    output[1] = output[2];
+    output[2] = temp;
+  }
+  return output[2];
 };
 
 module.exports = { nthFibonacci };

@@ -14,8 +14,10 @@ const makeHashTable = () => {
   let storageLimit = 4;
   let size = 0;
 
-  result.insert = () => {
+  result.insert = (key, value) => {
     // TODO: implement `insert`
+    const index = getIndexBelowMaxForKey(key, storageLimit); //index that will be saved in storage
+    storage[index] = storage[index] || [];
   };
 
   result.retrieve = () => {

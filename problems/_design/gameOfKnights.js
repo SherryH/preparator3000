@@ -36,47 +36,62 @@ Knight 4 Wins
 function GameofKnights(){
   'user strict';
   var KNIGHT_NUM = 3;
-  var knights = {};
+  var knights = [];
   //initialise 6 knights with 100 hitpoints
-  for (var j = 1; j <= KNIGHT_NUM; j++) {
-    knights[j] = 100;
+  for (var j = 0; j < KNIGHT_NUM; j++) {
+    knights[j] = {name: `Knight ${j+1}`, hitpoints: 100};
   }
   //while the knight is still alive
   //for each knight, generate the punch for each knight
-  //
-  //while (Object.keys(knights.length > 1)) {
+  console.log(knights);
+  for (var i = 1; i < knights.length; i++) {
     var punch, opponent;
-    for (var i = 1; i <= KNIGHT_NUM; i++) {
-      if (knights[i]) {
-        //generate punch 1~6
-        punch = Math.floor(Math.random()*6) + 1;
-        if(i!==KNIGHT_NUM) {
-          opponent = i+1;
-        } else {
-          opponent = 1;
-        }
-        //check if opponent still alive
-        if (knights[opponent]) {
-          knights[opponent] = knights[opponent] - punch;
-        } else {
-          //if opponent is dead, look for the next knight
-        }
-
-        console.log('knight ',opponent, 'knight hitpoints', knights[opponent]);
-        if (knights[opponent] <= 0) {
-          delete knights[opponent];
-          console.log(`Knight ${opponent} dies`);
-        } else {
-          console.log(`Knight ${i} hits Knight ${opponent} for ${punch} Points`);
-
-        }
+    if(knights[i]) {
+      //generate punch 1~6
+      punch = Math.floor(Math.random()*6) + 1;
+      if (i === knights.length -1) {
+        opponent = 0;
+      } else {
+        opponent = i + 1;
       }
     }
+    console.log(`${knights[i]['name']} hits ${knights[opponent].name} for ${punch} Points`);
+  }
+
+
+  //while (Object.keys(knights.length > 1)) {
+    // var punch, opponent;
+    // for (var i = 1; i <= KNIGHT_NUM; i++) {
+    //   if (knights[i]) {
+    //     //generate punch 1~6
+    //     punch = Math.floor(Math.random()*6) + 1;
+    //     if(i!==KNIGHT_NUM) {
+    //       opponent = i+1;
+    //     } else {
+    //       opponent = 1;
+    //     }
+    //     //check if opponent still alive
+    //     if (knights[opponent]) {
+    //       knights[opponent] = knights[opponent] - punch;
+    //     } else {
+    //       //if opponent is dead, look for the next knight
+    //     }
+
+    //     console.log('knight ',opponent, 'knight hitpoints', knights[opponent]);
+    //     if (knights[opponent] <= 0) {
+    //       delete knights[opponent];
+    //       console.log(`Knight ${opponent} dies`);
+    //     } else {
+    //       console.log(`Knight ${i} hits Knight ${opponent} for ${punch} Points`);
+
+    //     }
+    //   }
+    // }
   //}
   //there is only one knight left
-  for(var prop in knights) {
-    console.log(`Knight ${prop} Wins`);
-  }
+  // for(var prop in knights) {
+  //   console.log(`Knight ${prop} Wins`);
+  // }
 }
 
 GameofKnights();

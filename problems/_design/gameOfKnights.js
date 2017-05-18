@@ -35,7 +35,7 @@ Knight 4 Wins
 */
 function GameofKnights(){
   'use strict';
-  var KNIGHT_NUM = 3;
+  var KNIGHT_NUM = 6;
   var knights = [];
   //initialise 6 knights with 100 hitpoints
   for (var j = 0; j < KNIGHT_NUM; j++) {

@@ -34,29 +34,38 @@ Knight 4 Wins
 
 */
 function GameofKnights(){
-  'user strict';
+  'use strict';
   var KNIGHT_NUM = 3;
   var knights = [];
   //initialise 6 knights with 100 hitpoints
   for (var j = 0; j < KNIGHT_NUM; j++) {
-    knights[j] = {name: `Knight ${j+1}`, hitpoints: 100};
+    knights[j] = {name: `Knight ${j+1}`, hitpoints: 10};
   }
-  //while the knight is still alive
   //for each knight, generate the punch for each knight
-  console.log(knights);
-  for (var i = 1; i < knights.length; i++) {
-    var punch, opponent;
-    if(knights[i]) {
-      //generate punch 1~6
-      punch = Math.floor(Math.random()*6) + 1;
-      if (i === knights.length -1) {
-        opponent = 0;
-      } else {
-        opponent = i + 1;
+  while (knights.length > 1) {
+    for (var i = 0; i < knights.length; i++) {
+      var punch, opponent;
+      //if the knight is still alive
+      if(knights[i]) {
+        //generate punch 1~6
+        punch = Math.floor(Math.random()*6) + 1;
+        if (i === knights.length -1) {
+          opponent = 0;
+        } else {
+          opponent = i + 1;
+        }
+      }
+      knights[opponent].hitpoints = knights[opponent].hitpoints - punch;
+      // remove knight if his hitpoints is below 0
+      console.log(`${knights[i].name} hits ${knights[opponent].name} for ${punch} Points`);
+      if (knights[opponent].hitpoints <= 0) {
+        console.log(`${knights[opponent].name} dies`);
+        knights.splice(opponent,1);
       }
     }
-    console.log(`${knights[i]['name']} hits ${knights[opponent].name} for ${punch} Points`);
   }
+  // only one knight left
+  console.log(`${knights[0].name} Wins`);
 
 
   //while (Object.keys(knights.length > 1)) {

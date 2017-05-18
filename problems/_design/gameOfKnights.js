@@ -66,41 +66,6 @@ function GameofKnights(){
   }
   // only one knight left
   console.log(`${knights[0].name} Wins`);
-
-
-  //while (Object.keys(knights.length > 1)) {
-    // var punch, opponent;
-    // for (var i = 1; i <= KNIGHT_NUM; i++) {
-    //   if (knights[i]) {
-    //     //generate punch 1~6
-    //     punch = Math.floor(Math.random()*6) + 1;
-    //     if(i!==KNIGHT_NUM) {
-    //       opponent = i+1;
-    //     } else {
-    //       opponent = 1;
-    //     }
-    //     //check if opponent still alive
-    //     if (knights[opponent]) {
-    //       knights[opponent] = knights[opponent] - punch;
-    //     } else {
-    //       //if opponent is dead, look for the next knight
-    //     }
-
-    //     console.log('knight ',opponent, 'knight hitpoints', knights[opponent]);
-    //     if (knights[opponent] <= 0) {
-    //       delete knights[opponent];
-    //       console.log(`Knight ${opponent} dies`);
-    //     } else {
-    //       console.log(`Knight ${i} hits Knight ${opponent} for ${punch} Points`);
-
-    //     }
-    //   }
-    // }
-  //}
-  //there is only one knight left
-  // for(var prop in knights) {
-  //   console.log(`Knight ${prop} Wins`);
-  // }
 }
 
 GameofKnights();

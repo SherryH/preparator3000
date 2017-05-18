@@ -39,7 +39,7 @@ function GameofKnights(){
   var knights = [];
   //initialise 6 knights with 100 hitpoints
   for (var j = 0; j < KNIGHT_NUM; j++) {
-    knights[j] = {name: `Knight ${j+1}`, hitpoints: 10};
+    knights[j] = {name: `Knight ${j+1}`, hitpoints: 100};
   }
   //for each knight, generate the punch for each knight
   while (knights.length > 1) {

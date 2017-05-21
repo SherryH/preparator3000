@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "tape": "4.6.0"
+  }
+}

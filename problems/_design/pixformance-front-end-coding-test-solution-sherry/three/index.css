@@ -1,0 +1,24 @@
+p {
+  background-color: grey;
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-gap: 10px 10px;
+  padding: 5px;
+  border-radius: 5px;
+  width: 320px;
+}
+
+p span {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+  border-radius: 5px;
+}
+
+p span:nth-of-type(5) {
+  background-color: green;
+}

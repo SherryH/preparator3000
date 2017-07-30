@@ -42,6 +42,7 @@ proAsyncFunc
  });
  //then we need to define doSomething2 as.....
  function doSomething2(){
+    //promise keeps the notion of eventual value into an object
     return {
         then: function(callback){
             value = 'the promise value 55'
@@ -49,3 +50,12 @@ proAsyncFunc
         }
     };
  };
+
+ //if we redefine the promise to achieve the following
+ function doSomthing3(){
+    return Promise(function(resolve){
+        var value = 66;
+        resolve(value);
+    });
+ }
+ //the Promise takes in a resolve function, which gets called and receives the fulfilled value when the asynchronous task completes successfully

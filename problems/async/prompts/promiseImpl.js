@@ -53,9 +53,39 @@ proAsyncFunc
 
  //if we redefine the promise to achieve the following
  function doSomthing3(){
-    return Promise(function(resolve){
+    return new Promise2(function(resolve){
         var value = 66;
         resolve(value);
     });
  }
  //the Promise takes in a resolve function, which gets called and receives the fulfilled value when the asynchronous task completes successfully
+ function Promise2(fn) {
+    var callback = null; // the action we want to perform after promise returns. it needs to receive the resolved value
+
+    //'this' is the object returned
+    this.then = function(cb){
+        callback = cb;
+    };
+
+    //without setTimeout, compiler complains that callback is not a function. resolve() is called becore then()
+    function resolve(val){
+        setTimeout(function(){
+            callback(val);
+        },250);
+
+    };
+    // fn executes with a resolve, and reject function (implemented later)
+    // when doSomething3() executes, fn(resolve) executes
+    // fn(resolve) goes to the context and assign value = 66, and resolve(value) executes
+    // Due to closure, from resolve(value), value is passed to callback via callback(val)
+    // the callback is the cb passed in from .then(cb) captured via closure
+    // therefore cb is executed with async returned val via callback(val) inside resolve(val)
+    fn(resolve);
+ }
+
+ doSomthing3().then(function(val){
+    console.log(val);
+ });
+
+
+ console.log('===============Promises have states================');

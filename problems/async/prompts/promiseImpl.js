@@ -89,3 +89,8 @@ proAsyncFunc
 
 
  console.log('===============Promises have states================');
+ function Promise3(fn){
+    var state = "pending" //a Promise is in the pending state before it is fulfilled or rejected
+
+    fn(resolve); //we want to execute fn when Promise is created
+ }

@@ -96,7 +96,7 @@ function Promise3(fn) {
 //onResolved is the work that is to be passed into .then(), which will be called when promise resolved
 
 function doSomthing4(time) {
-  return new Promise(resolve => {
+  return new Promise4(resolve => {
     setTimeout(resolve, time);
   });
 }
@@ -118,7 +118,11 @@ function Promise4(fn) {
   function Resolve(newValue) {
     //resolve will have the newValue passed to it when async function value is returned (state ==='resolved')
     //resolve() is executed when above setTimeout reached the time
-    //1st go to handle(deferred), since deferred is not defined, it is not called yet
+    //1st go to .then(), handle(onResolved) is called. Because status = pending, don't execute onResolved() yet.
+    // save the onResolved() to deferred to be executed later
+    //when setTimeout() reached, Resolve() called handle(deferred),
+
+    //if deferred is not defined, .then() is not called yet. We save the value first and pass value when .then() called
     value = newValue;
     state = 'resolved';
     //delegate to handle()
@@ -127,9 +131,17 @@ function Promise4(fn) {
     }
   }
 
+  function handle(onResolved) {
+    if (state === 'pending') {
+      deferred = onResolved;
+      return;
+    }
+    onResolved(value);
+  }
+
   this.then = function(onResolved) {
     handle(onResolved);
   };
 
-  fn(resolve); // executes with Resolve as argument
+  fn(Resolve); // executes with Resolve as argument
 }

@@ -52,8 +52,32 @@ function update_items(items) {
           item.quality = Math.max(item.quality -1, 0)
         }
         item.sell_in = item.sell_in - 1 // move to bottom            
-      
     }
   })
 
 }
+
+// further refactoring can be done by extracting functions
+/*
+function update_items(){
+  switch(item.name){
+    case "Aged Brie":
+      getAgedBrieQuality()
+      break;
+    case "Backstage Concert":
+      getBackstageQuality()
+      break;      
+    case: "Sulfuras":
+      break;
+    case "Conjured":
+      getConjuredQuality()
+      break;
+    default:
+      getCommonItemQuality()
+  }
+  if(item.name !== "Sufuras"){
+    item.sell_in = item.sell_in - 1
+  }
+}
+
+*/

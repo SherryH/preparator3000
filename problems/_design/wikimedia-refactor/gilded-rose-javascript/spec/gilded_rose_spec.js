@@ -98,11 +98,31 @@ describe("Gilded Rose", function() {
     expect(items[1].quality).toEqual(0);
   });
 
-  xit("Given sell_in > 0, conjured item quality degrades by 2 after 1 day", function() {
+  it("Given sell_in > 0, conjured item quality degrades by 2 after 1 day", function() {
     var items = [];
     items.push(new Item('Conjured Mana Cake', 3, 6));
     update_items(items);
     expect(items[0].sell_in).toEqual(2);
     expect(items[0].quality).toEqual(4);
+  });
+
+  it("Given sell_in <= 0, conjured item quality degrades by 2 after 1 day", function() {
+    var items = [];
+    items.push(new Item('Conjured Mana Cake', -1, 6));
+    update_items(items);
+    expect(items[0].sell_in).toEqual(-2);
+    expect(items[0].quality).toEqual(2);
+  });
+
+  it("Conjured item quality never goes below 0", function() {
+    var items = [];
+    items.push(new Item('Conjured Mana Cake', -1, 0));
+    update_items(items);
+    expect(items[0].sell_in).toEqual(-2);
+    expect(items[0].quality).toEqual(0);
+    items.push(new Item('Conjured Mana Cake', 1, 0));
+    update_items(items);
+    expect(items[1].sell_in).toEqual(0);
+    expect(items[1].quality).toEqual(0);
   });
 });

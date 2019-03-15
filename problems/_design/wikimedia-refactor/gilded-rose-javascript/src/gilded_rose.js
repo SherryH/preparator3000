@@ -13,33 +13,8 @@ items.push(new Item('Sulfuras, Hand of Ragnaros', 0, 80));
 items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20));
 items.push(new Item('Conjured Mana Cake', 3, 6));
 
-function update_quality(items) {
-  for (var i = 0; i < items.length; i++) {
-    if (items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
-      if (items[i].quality > 0) {
-        if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
-          items[i].quality = items[i].quality - 1;
-        }
-      }
-    } 
-    if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
-      items[i].sell_in = items[i].sell_in - 1;
-    }
-    if (items[i].sell_in < 0) {
-        if (items[i].quality > 0) {
-          if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
-            items[i].quality = items[i].quality - 1
-          }
-        }
-
-
-    }
-  }
-}
-
 function update_items(items) {
   items.forEach(item=>{
-    
     // if 'Aged Brie'
     if (item.name === 'Aged Brie'){
       if (item.quality < 50) {
@@ -63,8 +38,21 @@ function update_items(items) {
         }
       }
       item.sell_in = item.sell_in - 1 // move to bottom            
+    } else if (item.name === 'Sulfuras, Hand of Ragnaros'){
+      
+    } else if (item.name === 'Conjured Mana Cake'){
+        item.quality = item.quality > 0 ? item.quality - 2: item.quality
+        if (item.sell_in < 0 && item.quality > 0) {
+          item.quality = Math.max(item.quality -2, 0)
+        }
+        item.sell_in = item.sell_in - 1 // move to bottom            
     } else {
-      update_quality([item])
+        item.quality = item.quality > 0 ? item.quality - 1: item.quality
+        if (item.sell_in < 0 && item.quality > 0) {
+          item.quality = Math.max(item.quality -1, 0)
+        }
+        item.sell_in = item.sell_in - 1 // move to bottom            
+      
     }
   })
 

@@ -98,7 +98,7 @@ describe("Gilded Rose", function() {
     expect(items[1].quality).toEqual(0);
   });
 
-  it("Given sell_in > 0, conjured item quality degrades by 2 after 1 day", function() {
+  xit("Given sell_in > 0, conjured item quality degrades by 2 after 1 day", function() {
     var items = [];
     items.push(new Item('Conjured Mana Cake', 3, 6));
     update_items(items);
